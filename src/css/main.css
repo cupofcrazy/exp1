@@ -9,24 +9,12 @@
     box-sizing: border-box;
 }
 body {
-    background: #111;
+    /* background: #111; */
+    /* overflow: hidden; */
 }
 
-#app {
-    font-family: 'Faktum', sans-serif;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-h1 {
-    color: #FFF;
-}
-img {
-    width: 200px;
+canvas {
     position: absolute;
-    z-index: -1;
+    top: 0;
+    left: 0;
 }
-
