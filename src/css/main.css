@@ -1,0 +1,32 @@
+@font-face {
+    font-family: 'Faktum';
+    src: url('../assets/fonts/Faktum.woff') format('woff');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: #111;
+}
+
+#app {
+    font-family: 'Faktum', sans-serif;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    color: #FFF;
+}
+img {
+    width: 200px;
+    position: absolute;
+    z-index: -1;
+}
+
