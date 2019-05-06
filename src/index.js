@@ -51,6 +51,7 @@ for (let i = 0; i < 7; i++) {
     // Push each rect to array
     graphics.push({
         rect: rect,
+        isExpand: false,
         x: x,
         y: y,
         width: width,
@@ -62,14 +63,26 @@ for (let i = 0; i < 7; i++) {
 
 graphics.forEach((graphic, index) => {
     const { x, y, rect, width, height } = graphic
+    
+
     const newWidth = width + 200
    rect.on('pointertap', () => {
+        graphic.isExpand = !graphic.isExpand    
         TweenMax.to(rect, 1, {
-           x: (WIDTH/2) - (newWidth/2),
-           y: (HEIGHT/2) - (height/2),
-           width: newWidth,
-           height: 300,
+           x: graphic.isExpand ? (WIDTH/2) - (newWidth/2) : x,
+           y: graphic.isExpand ? (HEIGHT/2) - (height/2) : y,
+           width: graphic.isExpand ? newWidth : width,
+           height: graphic.isExpand ? 300 : height,
+           interactive: graphic.isExpand ? true : false,
+           alpha: 1,
            ease: Expo.easeInOut
+        })
+        graphics.forEach(gr => {
+            if (gr.isExpand === false) {
+                TweenMax.to(gr.rect, 1, {
+                    alpha: gr.isExpand === false ? 0.5 : 1
+                })
+            }
         })
     })
 })
